@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.1 on win32)" generated="2024-05-08T19:46:49.153116" rpa="false" schemaversion="5">
+<suite id="s1" name="View Product Test" source="D:\TDTU - JUNIOR\AUTO TESTING\GIUAKI\tests\View_Product_Test.robot">
+<test id="s1-t1" name="TC01 : Open browser, sign in" line="12">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:49.457664" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com'.</msg>
+<arg>${URL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-08T19:46:49.457664" elapsed="3.292886"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-08T19:46:52.750550" elapsed="3.392786"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:56.144347" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<arg>id=user-name</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.144347" elapsed="0.192330"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:56.337664" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.336677" elapsed="0.227383"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:56.565079" level="INFO">Clicking element 'id=login-button'.</msg>
+<arg>id=login-button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.564060" elapsed="0.116878"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id=inventory_container</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.681940" elapsed="0.015999"/>
+</kw>
+<status status="PASS" start="2024-05-08T19:46:49.455669" elapsed="7.242270"/>
+</test>
+<test id="s1-t2" name="TC02 : Count product" line="20">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:56.721981" level="INFO">${products} = 6</msg>
+<var>${products}</var>
+<arg>css=.inventory_item</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.699941" elapsed="0.023038"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${products} &gt; 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.722979" elapsed="0.001001"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:56.723980" level="INFO">Đã tìm thấy 6 sản phẩm</msg>
+<arg>Đã tìm thấy ${products} sản phẩm</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.723980" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-08T19:46:56.698940" elapsed="0.026038"/>
+</test>
+<test id="s1-t3" name="TC03 : Check Product Details Of The First Products" line="25">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>(//div[@class='inventory_item'])[1]</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.725980" elapsed="0.019523"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:56.789533" level="INFO">${product_name} = Sauce Labs Backpack</msg>
+<var>${product_name}</var>
+<arg>css=.inventory_item_name</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.745503" elapsed="0.044030"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:56.826742" level="INFO">${product_description} = carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.</msg>
+<var>${product_description}</var>
+<arg>css=.inventory_item_desc</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.790960" elapsed="0.035782"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:56.854743" level="INFO">${product_price} = $29.99</msg>
+<var>${product_price}</var>
+<arg>css=.inventory_item_price</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.827740" elapsed="0.027003"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:56.855742" level="INFO">Tên sản phẩm: Sauce Labs Backpack</msg>
+<arg>Tên sản phẩm: ${product_name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.855742" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:56.856743" level="INFO">Mô tả sản phẩm: carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.</msg>
+<arg>Mô tả sản phẩm: ${product_description}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.856743" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:56.857741" level="INFO">Giá sản phẩm: $29.99</msg>
+<arg>Giá sản phẩm: ${product_price}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.857741" elapsed="0.000000"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:56.858745" level="INFO">Length is 19.</msg>
+<arg>${product_name}</arg>
+<arg>msg=Tên sản phẩm không được rỗng</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.857741" elapsed="0.001004"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:56.858745" level="INFO">Length is 6.</msg>
+<arg>${product_price}</arg>
+<arg>msg=Giá sản phẩm không được rỗng</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.858745" elapsed="0.000000"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:56.859744" level="INFO">Length is 134.</msg>
+<arg>${product_description}</arg>
+<arg>msg=Mô tả sản phẩm không được rỗng</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.859744" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-08T19:46:56.724978" elapsed="0.134766"/>
+</test>
+<test id="s1-t4" name="TC04 : Check Product Details Of All Products" line="37">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:56.874036" level="INFO">@{products} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="83af5a455fcf1f0670c96d1254cc4514", element="f.5214CF1D91F2379398B85F233EF5476F.d.8CEEC4C64307F72C7E510872157147BA.e.17")&gt; | &lt;selenium.webdr...</msg>
+<var>@{products}</var>
+<arg>css=.inventory_item</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.861741" elapsed="0.013296"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-08T19:46:56.877035" level="INFO">${name_locator} = css=.inventory_item_name</msg>
+<var>${name_locator}</var>
+<arg>css=.inventory_item_name</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.876036" elapsed="0.000999"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-08T19:46:56.878091" level="INFO">${desc_locator} = css=.inventory_item_desc</msg>
+<var>${desc_locator}</var>
+<arg>css=.inventory_item_desc</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.878091" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-08T19:46:56.879103" level="INFO">${price_locator} = css=.inventory_item_price</msg>
+<var>${price_locator}</var>
+<arg>css=.inventory_item_price</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.879103" elapsed="0.000000"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:56.912806" level="INFO">${product_name} = Sauce Labs Backpack</msg>
+<var>${product_name}</var>
+<arg>${name_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.880116" elapsed="0.032690"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:56.933421" level="INFO">${product_description} = carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.</msg>
+<var>${product_description}</var>
+<arg>${desc_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.912806" elapsed="0.020615"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:56.953888" level="INFO">${product_price} = $29.99</msg>
+<var>${product_price}</var>
+<arg>${price_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.933421" elapsed="0.021571"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:56.955979" level="INFO">Tên sản phẩm: Sauce Labs Backpack</msg>
+<arg>Tên sản phẩm: ${product_name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.954992" elapsed="0.000987"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:56.956989" level="INFO">Mô tả sản phẩm: carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.</msg>
+<arg>Mô tả sản phẩm: ${product_description}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.955979" elapsed="0.001010"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:56.957990" level="INFO">Giá sản phẩm: $29.99</msg>
+<arg>Giá sản phẩm: ${product_price}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.956989" elapsed="0.001001"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:56.958991" level="INFO">Length is 19.</msg>
+<arg>${product_name}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.957990" elapsed="0.001001"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:56.959990" level="INFO">Length is 134.</msg>
+<arg>${product_description}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.958991" elapsed="0.000999"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:56.960981" level="INFO">Length is 6.</msg>
+<arg>${product_price}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.959990" elapsed="0.000991"/>
+</kw>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="83af5a455fcf1f0670c96d1254cc4514", element="f.5214CF1D91F2379398B85F233EF5476F.d.8CEEC4C64307F72C7E510872157147BA.e.17")&gt;</var>
+<status status="PASS" start="2024-05-08T19:46:56.876036" elapsed="0.084945"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-08T19:46:56.962987" level="INFO">${name_locator} = css=.inventory_item_name</msg>
+<var>${name_locator}</var>
+<arg>css=.inventory_item_name</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.961981" elapsed="0.001006"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-08T19:46:56.963993" level="INFO">${desc_locator} = css=.inventory_item_desc</msg>
+<var>${desc_locator}</var>
+<arg>css=.inventory_item_desc</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.962987" elapsed="0.001006"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-08T19:46:56.965118" level="INFO">${price_locator} = css=.inventory_item_price</msg>
+<var>${price_locator}</var>
+<arg>css=.inventory_item_price</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.963993" elapsed="0.001125"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:56.986293" level="INFO">${product_name} = Sauce Labs Backpack</msg>
+<var>${product_name}</var>
+<arg>${name_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.965118" elapsed="0.022280"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:57.010203" level="INFO">${product_description} = carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.</msg>
+<var>${product_description}</var>
+<arg>${desc_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:56.987398" elapsed="0.022805"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:57.034406" level="INFO">${product_price} = $29.99</msg>
+<var>${product_price}</var>
+<arg>${price_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.010203" elapsed="0.024203"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.035421" level="INFO">Tên sản phẩm: Sauce Labs Backpack</msg>
+<arg>Tên sản phẩm: ${product_name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.035421" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.036420" level="INFO">Mô tả sản phẩm: carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.</msg>
+<arg>Mô tả sản phẩm: ${product_description}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.036420" elapsed="0.001065"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.038418" level="INFO">Giá sản phẩm: $29.99</msg>
+<arg>Giá sản phẩm: ${product_price}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.037485" elapsed="0.000933"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.039418" level="INFO">Length is 19.</msg>
+<arg>${product_name}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.038418" elapsed="0.001000"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.039418" level="INFO">Length is 134.</msg>
+<arg>${product_description}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.039418" elapsed="0.001001"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.041419" level="INFO">Length is 6.</msg>
+<arg>${product_price}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.041419" elapsed="0.001060"/>
+</kw>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="83af5a455fcf1f0670c96d1254cc4514", element="f.5214CF1D91F2379398B85F233EF5476F.d.8CEEC4C64307F72C7E510872157147BA.e.18")&gt;</var>
+<status status="PASS" start="2024-05-08T19:46:56.961981" elapsed="0.080498"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.043518" level="INFO">${name_locator} = css=.inventory_item_name</msg>
+<var>${name_locator}</var>
+<arg>css=.inventory_item_name</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.043518" elapsed="0.000901"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.044419" level="INFO">${desc_locator} = css=.inventory_item_desc</msg>
+<var>${desc_locator}</var>
+<arg>css=.inventory_item_desc</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.044419" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.045416" level="INFO">${price_locator} = css=.inventory_item_price</msg>
+<var>${price_locator}</var>
+<arg>css=.inventory_item_price</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.045416" elapsed="0.000000"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:57.067199" level="INFO">${product_name} = Sauce Labs Backpack</msg>
+<var>${product_name}</var>
+<arg>${name_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.045416" elapsed="0.022801"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:57.091612" level="INFO">${product_description} = carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.</msg>
+<var>${product_description}</var>
+<arg>${desc_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.068217" elapsed="0.024809"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:57.113794" level="INFO">${product_price} = $29.99</msg>
+<var>${product_price}</var>
+<arg>${price_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.093026" elapsed="0.021885"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.115813" level="INFO">Tên sản phẩm: Sauce Labs Backpack</msg>
+<arg>Tên sản phẩm: ${product_name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.114911" elapsed="0.000902"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.115813" level="INFO">Mô tả sản phẩm: carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.</msg>
+<arg>Mô tả sản phẩm: ${product_description}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.115813" elapsed="0.000995"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.116808" level="INFO">Giá sản phẩm: $29.99</msg>
+<arg>Giá sản phẩm: ${product_price}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.116808" elapsed="0.000000"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.117814" level="INFO">Length is 19.</msg>
+<arg>${product_name}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.117814" elapsed="0.000000"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.118813" level="INFO">Length is 134.</msg>
+<arg>${product_description}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.117814" elapsed="0.000999"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.118813" level="INFO">Length is 6.</msg>
+<arg>${product_price}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.118813" elapsed="0.000000"/>
+</kw>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="83af5a455fcf1f0670c96d1254cc4514", element="f.5214CF1D91F2379398B85F233EF5476F.d.8CEEC4C64307F72C7E510872157147BA.e.19")&gt;</var>
+<status status="PASS" start="2024-05-08T19:46:57.042479" elapsed="0.077330"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.119809" level="INFO">${name_locator} = css=.inventory_item_name</msg>
+<var>${name_locator}</var>
+<arg>css=.inventory_item_name</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.119809" elapsed="0.001048"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.120857" level="INFO">${desc_locator} = css=.inventory_item_desc</msg>
+<var>${desc_locator}</var>
+<arg>css=.inventory_item_desc</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.120857" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.121807" level="INFO">${price_locator} = css=.inventory_item_price</msg>
+<var>${price_locator}</var>
+<arg>css=.inventory_item_price</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.120857" elapsed="0.000950"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:57.145750" level="INFO">${product_name} = Sauce Labs Backpack</msg>
+<var>${product_name}</var>
+<arg>${name_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.121807" elapsed="0.023943"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:57.168618" level="INFO">${product_description} = carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.</msg>
+<var>${product_description}</var>
+<arg>${desc_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.146750" elapsed="0.021868"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:57.187441" level="INFO">${product_price} = $29.99</msg>
+<var>${product_price}</var>
+<arg>${price_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.168618" elapsed="0.018823"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.188446" level="INFO">Tên sản phẩm: Sauce Labs Backpack</msg>
+<arg>Tên sản phẩm: ${product_name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.188446" elapsed="0.000996"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.190445" level="INFO">Mô tả sản phẩm: carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.</msg>
+<arg>Mô tả sản phẩm: ${product_description}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.189442" elapsed="0.001003"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.191448" level="INFO">Giá sản phẩm: $29.99</msg>
+<arg>Giá sản phẩm: ${product_price}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.190445" elapsed="0.001003"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.192446" level="INFO">Length is 19.</msg>
+<arg>${product_name}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.192446" elapsed="0.000000"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.193447" level="INFO">Length is 134.</msg>
+<arg>${product_description}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.192446" elapsed="0.001001"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.194445" level="INFO">Length is 6.</msg>
+<arg>${product_price}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.194445" elapsed="0.000000"/>
+</kw>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="83af5a455fcf1f0670c96d1254cc4514", element="f.5214CF1D91F2379398B85F233EF5476F.d.8CEEC4C64307F72C7E510872157147BA.e.20")&gt;</var>
+<status status="PASS" start="2024-05-08T19:46:57.119809" elapsed="0.074636"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.195828" level="INFO">${name_locator} = css=.inventory_item_name</msg>
+<var>${name_locator}</var>
+<arg>css=.inventory_item_name</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.195828" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.196839" level="INFO">${desc_locator} = css=.inventory_item_desc</msg>
+<var>${desc_locator}</var>
+<arg>css=.inventory_item_desc</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.196839" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.197853" level="INFO">${price_locator} = css=.inventory_item_price</msg>
+<var>${price_locator}</var>
+<arg>css=.inventory_item_price</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.197853" elapsed="0.000000"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:57.216087" level="INFO">${product_name} = Sauce Labs Backpack</msg>
+<var>${product_name}</var>
+<arg>${name_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.198852" elapsed="0.017235"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:57.234038" level="INFO">${product_description} = carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.</msg>
+<var>${product_description}</var>
+<arg>${desc_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.216087" elapsed="0.017951"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:57.253902" level="INFO">${product_price} = $29.99</msg>
+<var>${product_price}</var>
+<arg>${price_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.235091" elapsed="0.020312"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.256420" level="INFO">Tên sản phẩm: Sauce Labs Backpack</msg>
+<arg>Tên sản phẩm: ${product_name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.255403" elapsed="0.001017"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.256420" level="INFO">Mô tả sản phẩm: carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.</msg>
+<arg>Mô tả sản phẩm: ${product_description}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.256420" elapsed="0.000999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.257419" level="INFO">Giá sản phẩm: $29.99</msg>
+<arg>Giá sản phẩm: ${product_price}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.257419" elapsed="0.000000"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.258418" level="INFO">Length is 19.</msg>
+<arg>${product_name}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.258418" elapsed="0.000000"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.259418" level="INFO">Length is 134.</msg>
+<arg>${product_description}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.258418" elapsed="0.001000"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.259418" level="INFO">Length is 6.</msg>
+<arg>${product_price}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.259418" elapsed="0.001000"/>
+</kw>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="83af5a455fcf1f0670c96d1254cc4514", element="f.5214CF1D91F2379398B85F233EF5476F.d.8CEEC4C64307F72C7E510872157147BA.e.21")&gt;</var>
+<status status="PASS" start="2024-05-08T19:46:57.195828" elapsed="0.064590"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.261417" level="INFO">${name_locator} = css=.inventory_item_name</msg>
+<var>${name_locator}</var>
+<arg>css=.inventory_item_name</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.261417" elapsed="0.001000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.263419" level="INFO">${desc_locator} = css=.inventory_item_desc</msg>
+<var>${desc_locator}</var>
+<arg>css=.inventory_item_desc</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.262417" elapsed="0.001002"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.264433" level="INFO">${price_locator} = css=.inventory_item_price</msg>
+<var>${price_locator}</var>
+<arg>css=.inventory_item_price</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.263419" elapsed="0.001014"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:57.283342" level="INFO">${product_name} = Sauce Labs Backpack</msg>
+<var>${product_name}</var>
+<arg>${name_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.264433" elapsed="0.018909"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:57.302933" level="INFO">${product_description} = carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.</msg>
+<var>${product_description}</var>
+<arg>${desc_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.284357" elapsed="0.018576"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-08T19:46:57.321701" level="INFO">${product_price} = $29.99</msg>
+<var>${product_price}</var>
+<arg>${price_locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.303934" elapsed="0.017767"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.322713" level="INFO">Tên sản phẩm: Sauce Labs Backpack</msg>
+<arg>Tên sản phẩm: ${product_name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.322713" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.323710" level="INFO">Mô tả sản phẩm: carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.</msg>
+<arg>Mô tả sản phẩm: ${product_description}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.323710" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.324715" level="INFO">Giá sản phẩm: $29.99</msg>
+<arg>Giá sản phẩm: ${product_price}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.323710" elapsed="0.001005"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.324715" level="INFO">Length is 19.</msg>
+<arg>${product_name}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.324715" elapsed="0.000995"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.325710" level="INFO">Length is 134.</msg>
+<arg>${product_description}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.325710" elapsed="0.000000"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-05-08T19:46:57.325710" level="INFO">Length is 6.</msg>
+<arg>${product_price}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.325710" elapsed="0.001132"/>
+</kw>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="83af5a455fcf1f0670c96d1254cc4514", element="f.5214CF1D91F2379398B85F233EF5476F.d.8CEEC4C64307F72C7E510872157147BA.e.22")&gt;</var>
+<status status="PASS" start="2024-05-08T19:46:57.261417" elapsed="0.065425"/>
+</iter>
+<var>${product}</var>
+<value>@{products}</value>
+<status status="PASS" start="2024-05-08T19:46:56.875037" elapsed="0.451805"/>
+</for>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-08T19:46:57.327709" elapsed="2.186378"/>
+</kw>
+<status status="PASS" start="2024-05-08T19:46:56.861741" elapsed="2.652346"/>
+</test>
+<status status="PASS" start="2024-05-08T19:46:49.176104" elapsed="10.339992"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="View Product Test">View Product Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.1 on win32)" generated="2024-05-09T00:47:11.771143" rpa="false" schemaversion="5">
+<suite id="s1" name="Buy Product Test" source="D:\TDTU - JUNIOR\AUTO TESTING\GIUAKI\tests\Buy_Product_Test.robot">
+<test id="s1-t1" name="TC01 : Open browser And Add Random Product To Cart" line="13">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-09T00:47:11.896556" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${URL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-09T00:47:11.896556" elapsed="1.795807"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-09T00:47:13.692363" elapsed="0.047686"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-09T00:47:13.740049" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<arg>id=user-name</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T00:47:13.740049" elapsed="0.180582"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-09T00:47:13.920631" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T00:47:13.920631" elapsed="0.074983"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-09T00:47:13.995614" level="INFO">Clicking element 'id=login-button'.</msg>
+<arg>id=login-button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T00:47:13.995614" elapsed="0.056100"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id=inventory_container</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-09T00:47:14.051714" elapsed="0.009043"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-09T00:47:14.067773" level="INFO">${product_elements} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="fe9fa889dec0e5efced3d173758efa6b", element="f.294F8206CC312338DB3F7B897E1AA6AA.d.1F1628C40E7222BBD3F19F3C2EF478EC.e.36")&gt;, &lt;selenium.webdriv...</msg>
+<var>${product_elements}</var>
+<arg>css=.inventory_item</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-09T00:47:14.060757" elapsed="0.007016"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-05-09T00:47:14.067773" level="INFO">Length is 6.</msg>
+<msg time="2024-05-09T00:47:14.067773" level="INFO">${count} = 6</msg>
+<var>${count}</var>
+<arg>${product_elements}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-05-09T00:47:14.067773" elapsed="0.000000"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-09T00:47:14.068771" level="INFO">${random_index} = 1</msg>
+<var>${random_index}</var>
+<arg>random.randint(0, ${count} - 1)</arg>
+<arg>modules=random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-09T00:47:14.068771" elapsed="0.000000"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2024-05-09T00:47:14.075772" level="INFO">${add_to_cart_button} = &lt;selenium.webdriver.remote.webelement.WebElement (session="fe9fa889dec0e5efced3d173758efa6b", element="f.294F8206CC312338DB3F7B897E1AA6AA.d.1F1628C40E7222BBD3F19F3C2EF478EC.e.42")&gt;</msg>
+<var>${add_to_cart_button}</var>
+<arg>css=.inventory_item:nth-of-type(${random_index + 1}) button.btn_inventory</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2024-05-09T00:47:14.068771" elapsed="0.007001"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-09T00:47:14.075772" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="fe9fa889dec0e5efced3d173758efa6b", element="f.294F8206CC312338DB3F7B897E1AA6AA.d.1F1628C40E7222BBD3F19F3C2EF478EC.e.42")&gt;'.</msg>
+<arg>${add_to_cart_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T00:47:14.075772" elapsed="0.023003"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-09T00:47:15.100618" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-09T00:47:14.098775" elapsed="1.001843"/>
+</kw>
+<var name="${i}">0</var>
+<status status="PASS" start="2024-05-09T00:47:14.068771" elapsed="1.031847"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-09T00:47:15.100618" level="INFO">${random_index} = 3</msg>
+<var>${random_index}</var>
+<arg>random.randint(0, ${count} - 1)</arg>
+<arg>modules=random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-09T00:47:15.100618" elapsed="0.000000"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2024-05-09T00:47:15.115395" level="INFO">${add_to_cart_button} = &lt;selenium.webdriver.remote.webelement.WebElement (session="fe9fa889dec0e5efced3d173758efa6b", element="f.294F8206CC312338DB3F7B897E1AA6AA.d.1F1628C40E7222BBD3F19F3C2EF478EC.e.44")&gt;</msg>
+<var>${add_to_cart_button}</var>
+<arg>css=.inventory_item:nth-of-type(${random_index + 1}) button.btn_inventory</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2024-05-09T00:47:15.100618" elapsed="0.014777"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-09T00:47:15.115395" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="fe9fa889dec0e5efced3d173758efa6b", element="f.294F8206CC312338DB3F7B897E1AA6AA.d.1F1628C40E7222BBD3F19F3C2EF478EC.e.44")&gt;'.</msg>
+<arg>${add_to_cart_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T00:47:15.115395" elapsed="0.029819"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-09T00:47:16.145673" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-09T00:47:15.145214" elapsed="1.000459"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2024-05-09T00:47:15.100618" elapsed="1.045055"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-09T00:47:16.145673" level="INFO">${random_index} = 4</msg>
+<var>${random_index}</var>
+<arg>random.randint(0, ${count} - 1)</arg>
+<arg>modules=random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-09T00:47:16.145673" elapsed="0.000000"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2024-05-09T00:47:16.145673" level="INFO">${add_to_cart_button} = &lt;selenium.webdriver.remote.webelement.WebElement (session="fe9fa889dec0e5efced3d173758efa6b", element="f.294F8206CC312338DB3F7B897E1AA6AA.d.1F1628C40E7222BBD3F19F3C2EF478EC.e.45")&gt;</msg>
+<var>${add_to_cart_button}</var>
+<arg>css=.inventory_item:nth-of-type(${random_index + 1}) button.btn_inventory</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2024-05-09T00:47:16.145673" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-09T00:47:16.145673" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="fe9fa889dec0e5efced3d173758efa6b", element="f.294F8206CC312338DB3F7B897E1AA6AA.d.1F1628C40E7222BBD3F19F3C2EF478EC.e.45")&gt;'.</msg>
+<arg>${add_to_cart_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T00:47:16.145673" elapsed="0.054536"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-09T00:47:17.200911" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-09T00:47:16.200209" elapsed="1.000702"/>
+</kw>
+<var name="${i}">2</var>
+<status status="PASS" start="2024-05-09T00:47:16.145673" elapsed="1.055238"/>
+</iter>
+<var>${i}</var>
+<value>${NUMBER_OF_PRODUCTS}</value>
+<status status="PASS" start="2024-05-09T00:47:14.067773" elapsed="3.133138"/>
+</for>
+<status status="PASS" start="2024-05-09T00:47:11.896556" elapsed="5.304355"/>
+</test>
+<test id="s1-t2" name="TC02 : Go To Cart" line="31">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-09T00:47:17.202039" level="INFO">Clicking element 'css=.shopping_cart_link'.</msg>
+<arg>css=.shopping_cart_link</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T00:47:17.202039" elapsed="0.052183"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>//div[@class='cart_footer']</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-05-09T00:47:17.254222" elapsed="0.293712"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-09T00:47:19.548231" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-09T00:47:17.547934" elapsed="2.000297"/>
+</kw>
+<status status="PASS" start="2024-05-09T00:47:17.200911" elapsed="2.347320"/>
+</test>
+<test id="s1-t3" name="TC03 : Go To Cart And Click Return Inventory Page" line="37">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-09T00:47:19.549256" level="INFO">Clicking element 'css=.back'.</msg>
+<arg>css=.back</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T00:47:19.548744" elapsed="0.054205"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-09T00:47:21.603977" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-09T00:47:19.603561" elapsed="2.000416"/>
+</kw>
+<status status="PASS" start="2024-05-09T00:47:19.548744" elapsed="2.055233"/>
+</test>
+<test id="s1-t4" name="TC04 : Go To Cart And Click Checkout" line="41">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-09T00:47:21.603977" level="INFO">Clicking element 'css=.shopping_cart_link'.</msg>
+<arg>css=.shopping_cart_link</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T00:47:21.603977" elapsed="0.066170"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>//div[@class='cart_footer']</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-05-09T00:47:21.671041" elapsed="0.294300"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-09T00:47:21.965341" level="INFO">Clicking element 'css=.checkout_button'.</msg>
+<arg>css=.checkout_button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-09T00:47:21.965341" elapsed="0.044280"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-09T00:47:24.010039" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-09T00:47:22.009621" elapsed="2.000418"/>
+</kw>
+<status status="PASS" start="2024-05-09T00:47:21.603977" elapsed="2.406062"/>
+</test>
+<status status="PASS" start="2024-05-09T00:47:11.786769" elapsed="12.223270"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="Buy Product Test">Buy Product Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

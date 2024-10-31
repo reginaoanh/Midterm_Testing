@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-15T21:03:52.033562" rpa="false" schemaversion="5">
+<suite id="s1" name="Buy Product Test" source="C:\Users\tgdd\Desktop\KTPM\GIUAKI\GIUAKI\tests\Buy_Product_Test.robot">
+<test id="s1-t1" name="TC01 : Thêm sản phẩm vào giỏ hàng sau đó xóa sản phẩm khỏi giỏ hàng" line="11">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-15T21:03:52.207108" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-15T21:03:52.206116" elapsed="8.400972"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-15T21:04:00.609086" level="INFO">Typing text 'standard_user' into text field 'css=input#user-name'.</msg>
+<arg>css=input#user-name</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T21:04:00.608085" elapsed="0.088762"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-15T21:04:00.697844" level="INFO">Typing text 'secret_sauce' into text field 'css=input#password'.</msg>
+<arg>css=input#password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T21:04:00.696847" elapsed="0.066449"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-15T21:04:00.763296" level="INFO">Clicking button 'css=input[type="submit"]'.</msg>
+<arg>css=input[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T21:04:00.763296" elapsed="0.067775"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-15T21:04:00.832069" level="INFO">Clicking link 'css=a#item_4_title_link'.</msg>
+<arg>css=a#item_4_title_link</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T21:04:00.831071" elapsed="0.056963"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-15T21:04:00.889031" level="INFO">Clicking button 'css=button#add-to-cart'.</msg>
+<arg>css=button#add-to-cart</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T21:04:00.889031" elapsed="0.054624"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-15T21:04:00.944739" level="INFO">Clicking link 'css=a.shopping_cart_link'.</msg>
+<arg>css=a.shopping_cart_link</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T21:04:00.943655" elapsed="0.041171"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-15T21:04:00.984826" level="INFO">Clicking button 'css=button#remove-sauce-labs-backpack'.</msg>
+<arg>css=button#remove-sauce-labs-backpack</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T21:04:00.984826" elapsed="0.046184"/>
+</kw>
+<kw name="Page Should Not Contain Element" owner="SeleniumLibrary">
+<msg time="2024-05-15T21:04:01.039269" level="INFO">Current page does not contain element 'css=div.inventory_item_name'.</msg>
+<arg>css=div.inventory_item_name</arg>
+<arg>Sauce Labs Backpack</arg>
+<doc>Verifies that element ``locator`` is not found on the current page.</doc>
+<status status="PASS" start="2024-05-15T21:04:01.032022" elapsed="0.008270"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-15T21:04:01.040292" elapsed="2.120952"/>
+</kw>
+<status status="PASS" start="2024-05-15T21:03:52.205103" elapsed="10.957027"/>
+</test>
+<test id="s1-t2" name="TC02 : Thêm sản phẩm vào giỏ hàng" line="23">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-15T21:04:03.165118" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-15T21:04:03.164121" elapsed="5.698181"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-15T21:04:08.864378" level="INFO">Typing text 'standard_user' into text field 'css=input#user-name'.</msg>
+<arg>css=input#user-name</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T21:04:08.863300" elapsed="0.089477"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-15T21:04:08.953772" level="INFO">Typing text 'secret_sauce' into text field 'css=input#password'.</msg>
+<arg>css=input#password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T21:04:08.952777" elapsed="0.065256"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-15T21:04:09.019046" level="INFO">Clicking button 'css=input[type="submit"]'.</msg>
+<arg>css=input[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T21:04:09.018033" elapsed="0.067029"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-15T21:04:09.086059" level="INFO">Clicking link 'css=a#item_4_title_link'.</msg>
+<arg>css=a#item_4_title_link</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T21:04:09.085062" elapsed="0.054010"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-15T21:04:09.139072" level="INFO">Clicking button 'css=button#add-to-cart'.</msg>
+<arg>css=button#add-to-cart</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T21:04:09.139072" elapsed="0.055506"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-15T21:04:09.194578" level="INFO">Clicking link 'css=a.shopping_cart_link'.</msg>
+<arg>css=a.shopping_cart_link</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T21:04:09.194578" elapsed="0.044415"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2024-05-15T21:04:09.253568" level="INFO">Current page contains element 'css=div.inventory_item_name'.</msg>
+<arg>css=div.inventory_item_name</arg>
+<arg>Sauce Labs Backpack</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2024-05-15T21:04:09.240279" elapsed="0.013289"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-15T21:04:09.253568" elapsed="2.112755"/>
+</kw>
+<status status="PASS" start="2024-05-15T21:04:03.163126" elapsed="8.204202"/>
+</test>
+<status status="PASS" start="2024-05-15T21:03:52.055463" elapsed="19.312857"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Buy Product Test">Buy Product Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

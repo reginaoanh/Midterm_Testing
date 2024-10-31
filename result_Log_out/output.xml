@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-15T23:09:54.246729" rpa="false" schemaversion="5">
+<suite id="s1" name="Log Out" source="C:\Users\tgdd\Desktop\KTPM\GIUAKI\GIUAKI\tests\Log_Out.robot">
+<test id="s1-t1" name="TC01 : Log out successfully" line="11">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-15T23:09:54.418656" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-15T23:09:54.418656" elapsed="3.960837"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-15T23:09:58.380283" level="INFO">Typing text 'standard_user' into text field 'css=input#user-name'.</msg>
+<arg>css=input#user-name</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T23:09:58.380283" elapsed="0.081614"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-15T23:09:58.461897" level="INFO">Typing text 'secret_sauce' into text field 'css=input#password'.</msg>
+<arg>css=input#password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T23:09:58.461897" elapsed="0.071645"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-15T23:09:58.533542" level="INFO">Clicking button 'css=input[type="submit"]'.</msg>
+<arg>css=input[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T23:09:58.533542" elapsed="0.076353"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-15T23:09:58.610862" level="INFO">Clicking button 'css=#react-burger-menu-btn'.</msg>
+<arg>css=#react-burger-menu-btn</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T23:09:58.610862" elapsed="0.058793"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css=a.bm-item.menu-item[data-test="logout-sidebar-link"]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-15T23:09:58.670087" elapsed="0.012694"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2024-05-15T23:09:58.682781" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.querySelector('a.bm-item.menu-item[data-test="logout-sidebar-link"]').getBoundingClientRect().top)
+Without any arguments.</msg>
+<arg>window.scrollTo(0, document.querySelector('a.bm-item.menu-item[data-test="logout-sidebar-link"]').getBoundingClientRect().top)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2024-05-15T23:09:58.682781" elapsed="0.005994"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=a#logout_sidebar_link</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-15T23:09:58.688775" elapsed="0.238446"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-15T23:09:58.927221" level="INFO">Clicking element 'css=a#logout_sidebar_link'.</msg>
+<arg>css=a#logout_sidebar_link</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T23:09:58.927221" elapsed="0.028550"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-15T23:09:58.955771" elapsed="2.109315"/>
+</kw>
+<status status="PASS" start="2024-05-15T23:09:54.418656" elapsed="6.646430"/>
+</test>
+<test id="s1-t2" name="TC02 : Check login status after logging out" line="23">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-15T23:10:01.065086" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-15T23:10:01.065086" elapsed="4.192093"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-15T23:10:05.257179" level="INFO">Typing text 'standard_user' into text field 'css=input#user-name'.</msg>
+<arg>css=input#user-name</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T23:10:05.257179" elapsed="0.101632"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-15T23:10:05.358811" level="INFO">Typing text 'secret_sauce' into text field 'css=input#password'.</msg>
+<arg>css=input#password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T23:10:05.358811" elapsed="0.062478"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-15T23:10:05.422190" level="INFO">Clicking button 'css=input[type="submit"]'.</msg>
+<arg>css=input[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T23:10:05.421289" elapsed="0.079696"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-15T23:10:05.500985" level="INFO">Clicking button 'css=#react-burger-menu-btn'.</msg>
+<arg>css=#react-burger-menu-btn</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T23:10:05.500985" elapsed="0.058418"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css=a.bm-item.menu-item[data-test="logout-sidebar-link"]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-05-15T23:10:05.559403" elapsed="0.011000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2024-05-15T23:10:05.571404" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.querySelector('a.bm-item.menu-item[data-test="logout-sidebar-link"]').getBoundingClientRect().top)
+Without any arguments.</msg>
+<arg>window.scrollTo(0, document.querySelector('a.bm-item.menu-item[data-test="logout-sidebar-link"]').getBoundingClientRect().top)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2024-05-15T23:10:05.571404" elapsed="0.006137"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=a#logout_sidebar_link</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-15T23:10:05.577541" elapsed="0.234670"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-15T23:10:05.812211" level="INFO">Clicking element 'css=a#logout_sidebar_link'.</msg>
+<arg>css=a#logout_sidebar_link</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-15T23:10:05.812211" elapsed="0.036336"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2024-05-15T23:10:05.858060" level="INFO">Current page contains element 'css=.submit-button.btn_action'.</msg>
+<arg>css=.submit-button.btn_action</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2024-05-15T23:10:05.848547" elapsed="0.009513"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-15T23:10:05.858060" elapsed="2.097164"/>
+</kw>
+<status status="PASS" start="2024-05-15T23:10:01.065086" elapsed="6.890138"/>
+</test>
+<status status="PASS" start="2024-05-15T23:09:54.262425" elapsed="13.692799"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Log Out">Log Out</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
